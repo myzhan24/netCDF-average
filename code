@@ -1,0 +1,16 @@
+// Create netCDF dimensions
+
+
+       	Dimension lon = new Dimension("longitude", longitude );
+       	Dimension lat = new Dimension("latitude", latitude );
+       	Dimension tim = new Dimension("time",1);
+	
+       	// define variable dimensions
+       	ArrayList<Dimension> dims =  new ArrayList<Dimension>();
+       	dims.add(tim);
+       	dims.add(lat);
+       	dims.add(lon);
+		   Group myGroup = new Group(ncd, ncd.getRootGroup(), "myGroup");
+		   myGroup.addDimension(lon);
+		   myGroup.addVariable(dataVar);
+		   ncd.addGroup(ncd.getRootGroup(), myGroup);
